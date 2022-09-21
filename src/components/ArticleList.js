@@ -1,10 +1,6 @@
-import logo from "../assets/logo.svg";
+import React from 'react'
+import Article from "./Article"
 
-const blogData = {
-  name: "Underreacted",
-  image: logo,
-  about: "A blog about learning React",
-}
 const posts = [
     {
       id: 1,
@@ -25,8 +21,18 @@ const posts = [
       title: "Function vs Class Components",
       preview: "React, meet OOJS.",
       minutes: 47,
-    },
-  ]
+    }
+    ]
 
-export {posts};
-export default blogData;
+function ArticleList(){
+    const blogList = posts.map((blogObj) => {
+        return <Article key={blogObj.id}title={blogObj.title}date={blogObj.date}preview={blogObj.preview}/>
+    })
+    return (
+        <main>
+            {blogList}
+        </main>
+    )
+}
+
+export default ArticleList
